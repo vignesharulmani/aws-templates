@@ -1,0 +1,61 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AdministratorAccessForRegionFrankfurt",
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestedRegion": [
+                        "eu-central-1"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "AllowGlobalServices",
+            "Effect": "Allow",
+            "Action": [
+                "aws-portal:*",
+                "awsbillingconsole:*",
+                "iam:*",
+                "sts:*",
+                "health:*",
+                "support:*",
+                "budgets:*",
+                "cloudfront:*",
+                "organizations:*",
+                "trustedadvisor:*",
+                "shield:*",
+                "waf:*",
+                "waf-regional:*",
+                "route53:*",
+                "route53domains:*",
+                "tag:*",
+                "resource-groups:*",
+                "s3:Get*",
+                "s3:List*",
+                "s3:Head*",
+                "glacier:List*",
+                "glacier:Describe*",
+                "glacier:Get*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowACMInUSEastAsWell",
+            "Effect": "Allow",
+            "Action": "acm:*",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestedRegion": [
+                        "us-east-1"
+                    ]
+                }
+            }
+        }
+    ]
+}
